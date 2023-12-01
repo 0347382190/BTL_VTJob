@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BTL_VTJob.Models.DoanhNghiep>
+
+@{
+    ViewData["Title"] = "GetDoanhNghiep";
+}
+
+<h1>Thông tin doanh nghiệp</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Logo
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenCT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.NguoiDung.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    <img src="~/images/@item.Anh" alt="" class="img-fluid" />
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.NguoiDung.Hoten)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
