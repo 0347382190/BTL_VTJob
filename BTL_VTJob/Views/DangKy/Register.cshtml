@@ -11,7 +11,7 @@
 
                 <div class="row justify-content-center">
 
-                    <h2 class="text-center">Login</h2>
+                    <h2 class="text-center">Đăng ký</h2>
                     <div class="col-lg-10 col-xl-8">
                        
                             <div class="card-body p-4 p-md-5">
@@ -46,44 +46,14 @@
                                     <span asp-validation-for="MatKhauXacNhan" class="text-danger"></span>
                                 </div>
                             </div>
-                           
-                            <div class="form-group">
-                                Bạn là nhà doanh nghiệp?<br />
-                                @Html.DropDownListFor(model=>model.isProvider ,new SelectList(Enum.GetValues(typeof(BTL_VTJob.ViewModel.RegisterVM.Quyen))),null,new {
-                                htmlAttributes=new{
-                                @type="select",
-                                @id= "isProvider",
-                                }
-                                })
-                                <span asp-validation-for="isProvider" class="text-danger"></span>
-                            </div>
-                            <div class=" form-group" id="TenCTProvider">
-                                <label asp-for="@Model.InfoProvider.TenCT" class="control-label"></label>
-                                <input asp-for="@Model.InfoProvider.TenCT" class="form-control" />
-                                <span asp-validation-for="@Model.InfoProvider.TenCT" class="text-danger"></span>
-                            </div>
-                            <div class=" form-group" id="MoTaProvider">
-                                <label asp-for="@Model.InfoProvider.MoTa" class="control-label"></label>
-                                <input asp-for="@Model.InfoProvider.MoTa" class="form-control" />
-                                <span asp-validation-for="@Model.InfoProvider.MoTa" class="text-danger"></span>
-                            </div>
-                            <div class=" form-group" id="DiaChiProvider">
-                                <label asp-for="@Model.InfoProvider.DiaChi" class="control-label"></label>
-                                <input asp-for="@Model.InfoProvider.DiaChi" class="form-control" />
-                                <span asp-validation-for="@Model.InfoProvider.DiaChi" class="text-danger"></span>
-                            </div>
-                            <div class=" form-group" id="AnhProvider">
-                                <label asp-for="@Model.InfoProvider.Anh" class="control-label"></label>
-                                <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
-                                <span asp-validation-for="@Model.InfoProvider.Anh" class="text-danger"></span>
-                            </div>
+                
                             <div class="text-center">
                                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 m-2">
-                                    <button type="submit" class="btn btn-primary btn-lg" style="width:310px">Register</button>
+                                    <button type="submit" class="btn btn-primary btn-lg" style="width:310px">Đăng ký</button>
                                 </div>
-                                OR
+                                Hoặc
                                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 m-2">
-                                    <button class="btn btn-primary btn-lg" style="width:310px">Login</button>
+                                    <button class="btn btn-primary btn-lg" style="width:310px">Đăng nhập</button>
                                 </div>
                             </div>
                             @* <div class="form-group m-2 text-center">

@@ -915,25 +915,36 @@ h1, h2, h3, h4 {
   box-shadow: none !important; }
 
 .btn.btn-primary {
-  color: #fff; }
-  .btn.btn-primary:hover {
-    background: #90c317;
-    border-color: #90c317; }
+    color: #fff;
+    background-color: rgba(138, 43, 226, 0.5;
+    border-radius: 40px;
+}
+
+    .btn.btn-primary:hover {
+        color: #ad06aa;
+    }
 
 .btn.btn-outline-white {
-  background: transparent;
-  border-width: 2px;
-  border-color: #fff;
-  color: #fff; }
-  .btn.btn-outline-white:hover {
-    background: #fff;
-    color: #000; }
+    background-color: rgba(138, 43, 226, 0.5);
+    border-radius: 40px;
+    border-width: 2px;
+    border-color: #fff;
+    color: #fff;
+}
+
+    .btn.btn-outline-white:hover {
+        color: #ad06aa;
+    }
 
 .btn.btn-outline-primary {
-  color: #89ba16; }
-  .btn.btn-outline-primary:hover {
     color: #fff;
-    background: #89ba16; }
+    background-color: rgba(138, 43, 226, 0.5);
+    border-radius: 40px;
+}
+
+    .btn.btn-outline-primary:hover {
+        color: #ad06aa;
+    }
 
 .custom-pagination a {
   width: 30px;
