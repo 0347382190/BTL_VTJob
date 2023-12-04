@@ -4,133 +4,101 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BTL_VTJob</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!--css layout share-->
+    <link rel="stylesheet" type="text/css" href="/css/layout_share.css" />
     <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="ftco-32x32.png">
+    <!--lay icon tu awesome-->
+    <link href="~/lib/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet" />
+    <!--css form dang ky, dang nhap-->
+    <link rel="stylesheet" type="text/css" href="/css/form_in_out.css" />
+    <!--css menu admin-->
+    <link rel="stylesheet" type="text/css" href="~/css/menu_admin.css" />
+
+
+    @*
+    
     <link rel="stylesheet" href="/BTL_VTJob.styles.css" asp-append-version="true" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
         <link rel="shortcut icon" href="ftco-32x32.png">
+
     <link rel="stylesheet" href="~/css/quill.snow.css">
     <link rel="stylesheet" href="~/fonts/icomoon/style.css">
     <link rel="stylesheet" href="~/fonts/line-icons/style.css">
     <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
-
     <link rel="stylesheet" href="~/css/custom-bs.css">
     <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="~/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="~/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/css/animate.min.css">
+
     <link href="~/lib/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet" />
     <link href="~/lib/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet" />
-
+ *@
         <!-- MAIN CSS -->
-    <link rel="stylesheet" href="~/css/style.css">
+    @* <link rel="stylesheet" href="~/css/style.css"> *@
    
 </head>
-<body id="top">
- 
-    <div class="site-wrap">
-
-       
-
-    <header class="site-navbar mt-3">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                    <div class="site-logo col-3"><a asp-controller="Home" asp-action="Index">FreeWork</a></div>
-
-                    <nav class="mx-auto col-6 site-navigation text-center">
-                    <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                                <!-- <li> <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li> -->
-                            @if (Context.Session.Keys.Contains("Email"))
-                            {
-                                @if (@Context.Session.GetString("Quyen") == "Admin")
-                                {
-                                    <li class="has-children">
-                                        <a href="job-listings.html">Admin</a>
-                                        <ul class="dropdown">
-                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="NguoiDung" asp-action="GetListUser">Người dùng</a></li>
-                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="NguoiDung" asp-action="GetDoanhNghiep">Doanh nghiệp</a></li>
-
-                                        </ul>
-                                    </li>
-                                }
-                                @if (@Context.Session.GetString("Quyen") == "Management")
-                                {
-                                    <li class="has-children">
-                                        <a href="job-listings.html">Doanh Nghiệp</a>
-                                        <ul class="dropdown">
-                                            <a class="nav-link" asp-area="" asp-controller="BaiTuyenDung" asp-action="GetList">Danh sách Job</a>
-                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="BaiTuyenDung" asp-action="CreateBaiTuyenDung">Tạo job</a></li>
-                                        </ul>
-                                    </li>
-
-                                }
-                               
-                            }       
-                        <li class="d-lg-none"><a asp-area="" asp-controller="DangKy" asp-action="register"> Đăng Ký</a> </li>
-                    </ul>
-                </nav>
-                    </div>
-                <div class="right-cta-menu justify-content-end text-right d-flex  col-3">
-                    <div class="ml-auto">
-                        @if(Context.Session.Keys.Contains("Email")) {
-                            <p>@Context.Session.GetString("HoTen") </p>
-                            <a asp-area="" asp-controller="Dangky" asp-action="Logout" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Đăng xuất</a>
-
-                        }else{
-                            <a asp-area="" asp-controller="Dangky" asp-action="register" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Đăng ký </a>
-                            <a asp-area="" asp-controller="DangKy" asp-action="login" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Đăng nhập</a>
-                        }
-                        
-                    </div>
-                    <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
-                </div>
-
-        </div>
-    </header>
-        <section class="section-hero inner-page overlay bg-image" style="background-image:src('../../wwwroot/images/nendk.jpg');" id="home-section">
-
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-12">
-                        <div class="mb-5 text-center">
-                            <h1 class="text-white font-weight-bold">TÌM VIỆC TỰ DO, THA HỒ LỰA CHỌN</h1>
-                        </div>
-                       
-                    </div>
-                </div>
+<body>
+    <div class="main">
+    <header class="header">
+        <div class="wrap">
+            <div class="col-9">
+                <div><a asp-controller="Home" asp-action="Index" id="tentrangweb">FREEWORK</a></div>
             </div>
 
-    </section>
+            <div class="col-3 menu-right">
 
-        <section class="site-section">
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+                 @if(Context.Session.Keys.Contains("Email")) {
+                     <p style="right:0;">@Context.Session.GetString("HoTen") </p>
+                     <a asp-area="" asp-controller="Dangky" asp-action="Logout" class="btn" id="btn-logout"><span ></span>Đăng xuất</a>
+
+                 }else{
+                     <a asp-area="" asp-controller="Dangky" asp-action="register" class="btn" id="btn-register"><span ></span>Đăng ký </a>
+                     <a asp-area="" asp-controller="DangKy" asp-action="login" class="btn" id="btn-login"><span ></span>Đăng nhập</a>
+                 }
+                 <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
+            </div>
         </div>
+        <section class="site-section bgr-image col-12" id="home-section">
+            <div class="container col-12">
+                <h2>TÌM VIỆC TỰ DO, THA HỒ LỰA CHỌN</h2>
+            </div> 
         </section>
-
-
-    <footer class="site-footer">
-
+    </header>
+        <!--Render body-->
+       
+            <section class="site-section">
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+            </section>
+    <footer class="footer col-12">
+        <p>Design by</p>
+        <p>Hang Thi Ha,     Nguyen Thi Thu Hoai,    Nguyen Hong Ngoc </p>
     </footer>
-
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/owl.carousel.min.js"></script>
-    <script src="~/js/quill.min.js"></script>
-    <script src="~/js/custom.js"></script>
-    <script src="~/js/isotope.pkgd.min.js"></script>
-    <script src="~/js/stickyfill.min.js"></script>
-    <script src="~/js/jquery.fancybox.min.js"></script>
-    <script src="~/js/jquery.waypoints.min.js"></script>
-    <script src="~/js/jquery.animateNumber.min.js"></script>
-    <script src="~/js/bootstrap-select.min.js"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/owl.carousel.min.js"></script>
+<script src="~/js/quill.min.js"></script>
+<script src="~/js/custom.js"></script>
+<script src="~/js/isotope.pkgd.min.js"></script>
+<script src="~/js/stickyfill.min.js"></script>
+<script src="~/js/jquery.fancybox.min.js"></script>
+<script src="~/js/jquery.waypoints.min.js"></script>
+<script src="~/js/jquery.animateNumber.min.js"></script>
+<script src="~/js/bootstrap-select.min.js"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
 </html>
