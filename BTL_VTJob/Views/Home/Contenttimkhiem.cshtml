@@ -1,0 +1,25 @@
+﻿@* // Trong thư mục Views/Home, tạo một file có tên là "_BaiTuyenDungList.cshtml" *@
+@model IEnumerable<BTL_VTJob.Models.BaiTuyenDung>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-6 mb-4">
+        <div class="block__87154">
+            <div class="block__91147 d-flex align-items-center">
+                <div class="w-25 p-2"><img src="~/images/job_logo_1.jpg" alt="Image" class="img-fluid "></div>
+                <div class="p-2 w-75">
+                    <blockquote>
+                        <a asp-action="DetailJob" asp-controller="BaituyenDung" asp-route-id="@item.MaBai">
+                            <p class="h3 text-dark"><strong>@item.TieuDe</strong></p>
+                        </a>
+                        <p class="">@item.DoanhNghiep.TenCT</p>
+                    </blockquote>
+                    <p class="h6">Số lượng:@item.SoLuongTuyen</p>
+                    <span class="position text-black h4 bg-white p-2">@item.MucLuong</span>
+                    <span class="position text-black h4 bg-white p-2">@item.HanNopCV</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

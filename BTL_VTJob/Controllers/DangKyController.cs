@@ -150,7 +150,8 @@ namespace BTL_VTJob.Controllers
             {
             if (user.Email == email && user.MatKhau == matkhau)
             {
-                HttpContext.Session.SetString("Email", email);
+                    //lưu thông tin nguoi dung vao session
+                    HttpContext.Session.SetString("Email", email);
                     HttpContext.Session.SetString("Quyen", user.quyen);
                     HttpContext.Session.SetString("HoTen", user.Hoten);
 
