@@ -25,18 +25,8 @@
                         <div>
                             <span class="ml-0 mr-2 mb-2"><span class="icon-briefcase mr-2"></span>@Model.LoaiCongViec.TenLoaiJob</span>
                             
-                            @ViewBag.hi= @Model.MaBai;
+                                <p style="display: none;">@ViewBag.hi= @Model.MaBai;</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-6">
-                        <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Save Job</a>
-                    </div>
-                    <div class="col-6">
-                        <a href="#" class="btn btn-block btn-primary btn-md">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -66,9 +56,6 @@
 
                 <div class="row mb-5">
                     <div class="col-6">
-                        <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Save Job</a>
-                    </div>
-                    <div class="col-6">
                             <p>
                                 @if (ViewBag.succ != null)
                                 {
@@ -76,13 +63,13 @@
                                 }
                                 else
                                 {
-                                    <span>Giá tr</span>
+                                    <span>Điền link CV để Ứng tuyển nào!</span>
                                 }
                             </p>
                             <strong>Link CV</strong>
-                          <input name="cv"/>  <br/>
+                            <input name="cv" class="input-tim-cv" />  <br />
                           <input type="hidden" name="mabai" value=@Model.MaBai />
-                            <input type="submit" value="Apply Now" class="btn btn-block btn-primary btn-md " />
+                            <input type="submit" value="Ứng tuyển" class="btn btn-block btn-primary btn-md " />
                         @* <a href="#" class="btn btn-block btn-primary btn-md">Apply Now</a> *@
                     </div>
                 </div>
@@ -90,7 +77,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="bg-light p-3 border rounded mb-4">
-                    <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Job Summary</h3>
+                    <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Tổng quan</h3>
                     <ul class="list-unstyled pl-3 mb-0">
                     
                         <li class="mb-2"><strong class="text-black">Ngày đăng:</strong> @Model.NgayDang</li>
@@ -100,41 +87,7 @@
                         <li class="mb-2"><strong class="text-black">Hạn apply:</strong>  @Model.HanNopCV</li>
                     </ul>
                 </div>
-
-                <div class="bg-light p-3 border rounded">
-                    <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
-                    <div class="px-3">
-                        <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
-                        <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
-                        <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
-                        <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
-                    </div>
-                </div>
-
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Thông tin doanh nghệp</h2>
-                <div class="mb-5">
-                    <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>@Model.DoanhNghiep.TenCT</h3>
-                   
-                </div>
-                <div class="mb-5">
-                    <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-rocket mr-3"></span>Thông tin</h3>
-                    <ul class="list-unstyled m-0 p-0">
-                        <li class="d-flex align-items-start mb-2"><span>@Model.DoanhNghiep.MoTa</span></li>
-
-                    </ul>
-                </div>
-
-                <div class="mb-5">
-                    <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-book mr-3"></span>Địa chỉ:</h3><span>@Model.DoanhNghiep.DiaChi</span>
-                   
-                </div>
-
-            </div>
-
         </div>
     </div>
 </section>

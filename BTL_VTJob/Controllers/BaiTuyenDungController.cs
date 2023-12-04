@@ -130,12 +130,11 @@ namespace BTL_VTJob.Controllers
             string macv = DateTime.Now.ToString("ss"+"mm");
             int? id = HttpContext.Session.GetInt32("UserID");
             //int UserID = Int32.Parse( HttpContext.Session.GetString("UserID"));
-            int UserID = 1002;
             CVUngTuyen cv = new CVUngTuyen();
             cv.MaCV = macv;
             cv.CV = CV;
             cv.MaBai = Mabai;
-            cv.UserID = UserID;
+            cv.UserID = id;
             _context.CVUngTuyen.Add(cv);
             _context.SaveChanges();
             ViewBag.succ = "Bạn nộp CV thành công!!!";

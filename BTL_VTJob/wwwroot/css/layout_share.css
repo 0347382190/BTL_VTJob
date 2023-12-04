@@ -77,8 +77,12 @@ a {
     background-position: center;
     background-repeat: no-repeat;
 }
-
-
+/*-----------Input tim kiem va nop link CV--------------*/
+.input-tim-cv{
+    width:200px;
+    background-color:cornflowerblue;
+    opacity: 0.5;
+}
 
 .col-1 {
     width: 8.33%;

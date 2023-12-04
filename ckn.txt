@@ -1,0 +1,2 @@
+Data Source=DESKTOP-62VA20P\SQLEXPRESS;Initial Catalog=BTL_VTJob;Integrated Security=True
+Data Source=DESKTOP-62VA20P\SQLEXPRESS;Database=BTL_VTJob;Integrated Security=true;TrustServerCertificate=true;
