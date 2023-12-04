@@ -94,9 +94,6 @@ namespace BTL_VTJob.Controllers
         {
 
             var bai = await _context.BaiTuyenDung.Where(u => u.MaBai == baiTuyenDung.MaBai).FirstOrDefaultAsync();
-            /* var user = await _context.Nguoidung.Where(u => u.UserID == bai.UserID).FirstOrDefaultAsync();   
-             baiTuyenDung.UserID = bai.UserID;
-             baiTuyenDung.NguoiDung = user;*/
             var job  = await _context.LoaiJob.Where(u => u.Id == baiTuyenDung.IdLoaiJob).FirstOrDefaultAsync();
             bai.MoTaCV = baiTuyenDung.MoTaCV;
             bai.SoLuongTuyen = baiTuyenDung.SoLuongTuyen;
@@ -120,20 +117,33 @@ namespace BTL_VTJob.Controllers
             return Redirect("GetList");
 
         }
-
         public async Task<IActionResult> DetailJob(string id)
         {
-            var detaiJob=_context.BaiTuyenDung.Where(u=>u.MaBai == id).Include(p=>p.DoanhNghiep).Include(p => p.LoaiCongViec).FirstOrDefault();
-            /*var user = await _context.Nguoidung.Where(u => u.UserID == detaiJob.UserID).FirstOrDefaultAsync();
-            var doanhNghiep = await _context.DoanhNghiep.Where(u => u.UserID == user.UserID).FirstOrDefaultAsync();
-            ViewBag.Anh = doanhNghiep.Anh;
-            ViewBag.ThongTinDN = doanhNghiep.MoTa;
-            ViewBag.TenDN = doanhNghiep.TenCT;
-            ViewBag.DiaChi = doanhNghiep.DiaChi;*/
+            var detaiJob = _context.BaiTuyenDung.Where(u => u.MaBai == id).Include(p => p.DoanhNghiep).Include(p => p.LoaiCongViec).FirstOrDefault();
 
             return View(detaiJob);
 
         }
+        [HttpPost]
+        public async Task<IActionResult> ApplyJob(String CV,string Mabai)
+        {
+            string macv = DateTime.Now.ToString("ss"+"mm");
+            int? id = HttpContext.Session.GetInt32("UserID");
+            //int UserID = Int32.Parse( HttpContext.Session.GetString("UserID"));
+            int UserID = 1002;
+            CVUngTuyen cv = new CVUngTuyen();
+            cv.MaCV = macv;
+            cv.CV = CV;
+            cv.MaBai = Mabai;
+            cv.UserID = UserID;
+            _context.CVUngTuyen.Add(cv);
+            _context.SaveChanges();
+            ViewBag.succ = "Bạn nộp CV thành công!!!";
+            var detaiJob = _context.BaiTuyenDung.Where(u => u.MaBai == Mabai).Include(p => p.DoanhNghiep).Include(p => p.LoaiCongViec).FirstOrDefault();
+            return View("DetailJob", detaiJob);
+
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

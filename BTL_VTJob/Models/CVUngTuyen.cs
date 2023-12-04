@@ -11,6 +11,7 @@ namespace BTL_VTJob.Models
         [ForeignKey(nameof(UserID))]
         public int UserID { get; set; }
         public virtual NguoiDung NguoiDung { get; set; }
+
         [ForeignKey(nameof(MaBai))]
         public string MaBai { get; set; }
         public virtual BaiTuyenDung BaiTuyenDung { get; set; }

@@ -3,6 +3,7 @@ using BTL_VTJob.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace BTL_VTJob.Controllers
 {
@@ -23,9 +24,13 @@ namespace BTL_VTJob.Controllers
                 return View(await list.ToListAsync());
 
             }
+        [HttpPost]
+        public async Task<IActionResult> Search(string content_search)
+        {
 
-           
-        
+            var list = _context.BaiTuyenDung.Include(p => p.DoanhNghiep).Include(p => p.LoaiCongViec).Where(p => p.TieuDe.Contains(content_search));
+            return PartialView("Contenttimkhiem", await list.ToListAsync()); ;
+        }
 
         public async Task<IActionResult> Privacy()
         {
