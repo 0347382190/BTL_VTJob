@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<BTL_VTJob.Models.NguoiDung>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "User";
 }
 
-<h1>Index</h1>
+<h3>Người dùng</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -50,7 +50,6 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.UserID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.UserID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.UserID">Delete</a>
             </td>
         </tr>

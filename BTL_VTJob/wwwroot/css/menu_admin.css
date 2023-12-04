@@ -1,0 +1,49 @@
+﻿.main-ad {
+    padding: 15px;
+    display: flex;
+    flex-direction: row; /* Sắp xếp các phần tử con theo chiều ngang */
+}
+
+/*---------------------wrap- menu- admin--------------------------*/
+.menu-ad {
+    float: left;
+    flex: 0 0 auto; /* Không phát triển hoặc co lại, giữ nguyên kích thước ban đầu */
+    height: 100vh;
+    background-color: #fff;
+}
+.wrap-menu-ad {
+    width: 250px;
+}
+
+/* Loại bỏ các định dạng của thẻ ul, li */
+.wrap-menu-ad ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#ul-menu{
+
+}
+.li-menu {
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #000;
+    background-color: #242a98;
+}
+.wrap-menu-ad li a{
+    text-decoration:none;
+    color:#fff;
+}
+
+.li-menu:hover {
+    cursor: pointer;
+    background-color: #ad06aa;
+}
+
+/*-------------------------Wrap- main- admin-------------------*/
+.wrap-main-ad {
+    background-color: #fff;
+    flex: 1; /* Phát triển để lấp đầy không gian có sẵn */
+}
+
