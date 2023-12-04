@@ -3,12 +3,62 @@
 @{
     ViewData["Title"] = "User";
 }
+<style>
+    h3 {
+        color: #333;
+    }
 
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #333;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+        a:hover {
+            color: #0056b3;
+        }
+</style>
 <h3>Người dùng</h3>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="CreateUser">Create New</a>
 </p>
+<ul>
+    <li>@Html.ActionLink("Người dùng", "Index", "Admin")</li>
+    <li><a onclick="hienbaituyendung()">Bài Tuyển dụng</a></li>
+    <li><a onclick="hiennhatuyendung()">Nhà tuyển dụng</a></li>
+</ul>
 <table class="table">
     <thead>
         <tr>

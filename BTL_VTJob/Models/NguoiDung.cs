@@ -14,13 +14,5 @@ namespace BTL_VTJob.Models
        
         /* public NguoiDung.Quyen quyen { get; set; }*/
         public string quyen { get; set; }
-      
-       
-       /* public enum Quyen
-        {
-            User,
-            Management,
-            Admin,
-        }*/
     }
 }

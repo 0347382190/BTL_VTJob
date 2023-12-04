@@ -67,7 +67,7 @@ namespace BTL_VTJob.Controllers
             baiTuyenDung.NgayDang = DateTime.Now;
             _context.BaiTuyenDung.Add(baiTuyenDung);
             _context.SaveChanges();
-          return Redirect("GetList"); ;
+          return Redirect("GetList"); 
 
         }
         public async Task<IActionResult> GetDSLoaiJob()
