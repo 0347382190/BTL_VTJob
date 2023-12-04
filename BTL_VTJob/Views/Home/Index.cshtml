@@ -2,39 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 @model IEnumerable<BTL_VTJob.Models.BaiTuyenDung>
-
- @if(Context.Session.GetString("Quyen")== "Admin")
-        {
-            <div class="col-12 main-ad">
-                <section class="col-3 menu-ad">
-                    <H5 style="color:#000;"><b>Quản lý</b></H5>
-                    <div class="wrap-menu-ad">
-                        <ul id="ul-menu">
-                            <li class="li-menu">
-                                <a class="link-menu">Người dùng</a>
-                            </li>
-                            <li class="li-menu">
-                                <a class="link-menu">Nhà tuyển dụng</a>
-                            </li>
-                            <li class="li-menu">
-                                <a class="link-menu">Bài đăng</a>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="col-9 wrap-main-ad">
-                    <div class="wrap-main-ad-inner">
-                        <main role="main">
-                           
-                        </main>
-                    </div>
-                </section>
-            </div>
-
-        }
-        else
-        {
-<section class="site-section" id="next-section">
 <a href="~/lib/jquery/dist/jquery.min.map"></a>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
