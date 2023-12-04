@@ -5,38 +5,98 @@
 <a href="~/lib/jquery/dist/jquery.min.map"></a>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
-<form method="post" class="site-section" id="next-section">
-    <div class="container">
-        <div>
-            <strong>Tìm kiếm</strong>
-            <input id="yourInputId" name="content_search" class="input-tim-cv"/>
-            <button type="button" onclick="Search()" id="SearchButton">Tìm kiếm</button>
+<style>
+    .menu-container {
+        margin-top:100px;
+        margin-bottom:100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* Kiểu dáng cho logo */
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 50%; /* Làm tròn logo nếu muốn */
+    }
+
+    /* Hiệu ứng hover khi di chuột vào menu-item */
+    .menu-item:hover {
+        color: #ffcc00; /* Màu khi hover */
+    }
+</style>
+@if (Context.Session.GetString("Quyen")=="Admin")
+{
+    <!-- Định nghĩa ba thẻ div cho menu -->
+    <div class="menu-container">
+        <!-- Thẻ div cho liên kết "Người dùng" -->
+        <div class="menu-item">
+            <img src="~/images/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg" alt="Logo" class="logo">
+          <br/>  @Html.ActionLink("Người dùng", "Index", "Admin")
         </div>
-        <div id="cnt" class="row">
-            @foreach (var item in Model)
-            {
-                <div class="col-lg-6 mb-4">
-                    <div class="block__87154">
-                        <div class="block__91147 d-flex align-items-center">
-                            <div class="w-25 p-2"><img src="~/images/cong-ty-co-phan-cong-nghe-sang-tao-tre-teky-holdings-6297130b27e96.webp" alt="Image" class="img-fluid "></div>
-                            <div class="p-2 w-75">
-                                <blockquote>
-                                    <a asp-action="DetailJob" asp-controller="BaituyenDung" asp-route-id="@item.MaBai">
-                                        <p class="h3 text-dark"><strong>@item.TieuDe</strong></p>
-                                    </a>
-                                    <p class="">@item.DoanhNghiep.TenCT</p>
-                                </blockquote>
-                                <p class="h6">Số lượng:@item.SoLuongTuyen</p>
-                                <p class="h6">@item.MucLuong</p>
-                                <p class="h6">@item.HanNopCV</p>
+
+        <!-- Thẻ div cho liên kết "Bài tuyển dụng" -->
+        <div class="menu-item">
+            <img src="/images/kisspng-pictogram-computer-icons-post-it-note-clip-art-lessons-vector-5b18743e2799b9.3788784315283292781622.jpg" alt="Logo" class="logo">
+            <br />   @Html.ActionLink("Bài tuyển dụng", "GetList", "BaiTuyenDung")
+        </div>
+
+        <!-- Thẻ div cho liên kết "Doanh Nghiệp" -->
+        <div class="menu-item">
+            <img src="/images/kisspng-computer-icons-factory-building-logo-factory-5abd4a2f99b9f7.5946002615223547356297.jpg" alt="Logo" class="logo">
+            <br />    @Html.ActionLink("Doanh Nghiệp", "Index", "Admin")
+        </div>
+    </div>
+}
+else
+{
+    <form method="post" class="site-section" id="next-section">
+        <div class="container">
+            <div>
+                <strong>Tìm kiếm</strong>
+                <input id="yourInputId" name="content_search" />
+                <button type="button" onclick="Search()" id="SearchButton">Tìm kiếm</button>
+            </div>
+            <div id="cnt" class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6 mb-4">
+                        <div class="block__87154">
+                            <div class="block__91147 d-flex align-items-center">
+                                <div class="w-25 p-2"><img src="~/images/job_logo_1.jpg" alt="Image" class="img-fluid "></div>
+                                <div class="p-2 w-75">
+                                    <blockquote>
+                                        <a asp-action="DetailJob" asp-controller="BaituyenDung" asp-route-id="@item.MaBai">
+                                            <p class="h3 text-dark"><strong>@item.TieuDe</strong></p>
+                                        </a>
+                                        <p class="">@item.DoanhNghiep.TenCT</p>
+                                    </blockquote>
+                                    <p class="h6">Số lượng:@item.SoLuongTuyen</p>
+                                    <span class="position text-black h4 bg-white p-2">@item.MucLuong</span>
+                                    <span class="position text-black h4 bg-white p-2">@item.HanNopCV</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+}
+
     <script>
         function Search() {
             var content = document.querySelector("#yourInputId");
