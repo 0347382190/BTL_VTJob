@@ -1,0 +1,129 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+/* Định dạng tên trang web */
+#tentrangweb {
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff; /* Màu chữ của tên trang web */
+    margin-left: 50px;
+    margin-top:50px;
+}
+
+/* Định dạng các thẻ a */
+a {
+    text-decoration: none;
+     /* Màu chữ của các liên kết */
+}
+
+.menu-right {
+    float: right;
+    margin-top: 50px;
+    color:#fff;
+}
+
+/* Định dạng nút đăng nhập và đăng xuất */
+.btn {
+    width: 100px;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background-color: #242a98;
+    color: #fff;
+    text-decoration: none;
+    right: 0;
+}
+
+    .btn:hover {
+        background-color:#ad06aa;
+        color:#fff;
+    }
+
+.bgr-image {
+    background-image: url('../images/nendk.jpg'); /* Đường dẫn đến ảnh nền */
+    background-size: cover; /* Chỉnh kích thước ảnh sao cho nó cover toàn bộ phần đó */
+    background-position: center; /* Đặt vị trí hiển thị của ảnh nền ở giữa */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    height: 180px; /* Chiều cao của phần có ảnh nền */
+    color: #fff; /* Màu chữ hiển thị trên ảnh nền */
+    text-align: center; /* Căn giữa nội dung trên ảnh nền */
+    padding-top: 100px; /* Khoảng cách từ trên xuống để canh giữa nội dung */
+    background-attachment: fixed; /*Đặt nền cố định*/
+}
+
+    /* Chỉnh màu chữ của tiêu đề trên ảnh nền */
+    .site-section .bgr-image h2 {
+        color: #fff;
+    }
+.footer {
+    /* background-color: rgba(138, 43, 226, 0.8);*/
+    background-image: url('../images/nendk.jpg');
+    /*position: fixed; *//* Sử dụng position: fixed để cố định vị trí */
+    bottom: 0; /* Đặt bottom: 0 để đưa footer xuống dưới cùng */
+    color: #fff; /* Màu chữ của footer */
+    text-align: center; /* Căn giữa nội dung trong footer */
+    padding: 10px; /* Khoảng cách giữa nội dung và mép của footer */
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}

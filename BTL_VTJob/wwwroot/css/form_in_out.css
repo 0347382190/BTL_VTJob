@@ -1,0 +1,39 @@
+﻿.wrap-form {
+    align-items: center; /* Căn cả form theo chiều dọc */
+    justify-content: center; /* Căn cả form theo chiều ngang */
+    height: 100vh; /* Sử dụng chiều cao của viewport để căn giữa trang web */
+}
+
+.container_form {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Căn cả form theo chiều ngang */
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #fff;
+    max-width: 600px;
+    margin: 70px auto;
+}
+.login {
+    height: 400px;
+}
+form {
+    margin: auto;
+    padding: 10px;
+    background-color: #fff;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+}
+input {
+    border-radius: 30px;
+}
