@@ -32,7 +32,6 @@ namespace BTL_VTJob.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var checkedUser = _context.Nguoidung.Where(u => u.Email.Equals(register.Email)).FirstOrDefault();
                 if (checkedUser != null)
                 {
