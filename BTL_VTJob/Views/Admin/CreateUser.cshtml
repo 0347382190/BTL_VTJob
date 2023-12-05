@@ -13,13 +13,14 @@
         color: #555;
     }
 
-    .row {
-        margin-top: 20px;
+    .wrap-u {
+        margin: 20px auto;
     }
 
     .col-md-4 {
         background-color: #f8f9fa;
         padding: 20px;
+        margin:0 auto;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -68,11 +69,11 @@
             color: #0056b3;
         }
 </style>
-<h1>CreateUser</h1>
+<h1>Thêm mới</h1>
 
-<h4>NguoiDung</h4>
+<h4>Người dùng</h4>
 <hr />
-<div class="row">
+<div class="wrap-u">
     <div class="col-md-4">
         <form method="post" asp-action="CreateUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -109,7 +110,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Quay lại Danh sách</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

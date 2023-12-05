@@ -4,6 +4,11 @@
     ViewData["Title"] = "User";
 }
 <style>
+    .inner{
+        width:100%;
+        height:100vh;
+        padding: 10px;
+    }
     h3 {
         color: #333;
     }
@@ -15,7 +20,16 @@
 
     li {
         display: inline-block;
-        margin-right: 20px;
+        width:200px;
+        height:30px;
+        border:1px solid #000;
+        text-align:center;
+    }
+
+    li:hover{
+        cursor: pointer;
+        background-color: #999;
+        color:#2029e1;
     }
 
     table {
@@ -32,7 +46,7 @@
 
     th {
         background-color: #333;
-        color: #fff;
+        color: #000;
     }
 
     tr:nth-child(even) {
@@ -40,69 +54,70 @@
     }
 
     a {
-        color: #007bff;
         text-decoration: none;
-        cursor: pointer;
+        color:#000;
     }
 
-        a:hover {
-            color: #0056b3;
-        }
-</style>
-<h3>Người dùng</h3>
 
-<p>
-    <a asp-action="CreateUser">Create New</a>
-</p>
-<ul>
-    <li>@Html.ActionLink("Người dùng", "Index", "Admin")</li>
-    <li><a onclick="hienbaituyendung()">Bài Tuyển dụng</a></li>
-    <li><a onclick="hiennhatuyendung()">Nhà tuyển dụng</a></li>
-</ul>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Hoten)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SoDT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MatKhau)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.quyen)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hoten)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoDT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatKhau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.quyen)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.UserID">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.UserID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+</style>
+<div class="inner">
+    <h3>Người dùng</h3>
+
+    <p>
+        <a asp-action="CreateUser" class="btn">Thêm mới</a>
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Người dùng", "Index", "Admin")</li>
+        <li><a onclick="hienbaituyendung()">Bài Tuyển dụng</a></li>
+        <li><a onclick="hiennhatuyendung()">Nhà tuyển dụng</a></li>
+    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hoten)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoDT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MatKhau)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quyen)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hoten)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MatKhau)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quyen)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.UserID">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.UserID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

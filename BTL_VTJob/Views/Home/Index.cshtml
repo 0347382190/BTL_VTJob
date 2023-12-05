@@ -67,8 +67,8 @@ else
         <div class="container">
             <div>
                 <strong>Tìm kiếm</strong>
-                <input id="yourInputId" name="content_search" />
-                <button type="button" onclick="Search()" id="SearchButton">Tìm kiếm</button>
+                <input id="yourInputId" name="content_search" class="input-tim-cv" />
+                <button type="button" onclick="Search()" id="SearchButton" class="btn" >Tìm kiếm</button>
             </div>
             <div id="cnt" class="row">
                 @foreach (var item in Model)
@@ -85,8 +85,8 @@ else
                                         <p class="">@item.DoanhNghiep.TenCT</p>
                                     </blockquote>
                                     <p class="h6">Số lượng:@item.SoLuongTuyen</p>
-                                    <span class="position text-black h4 bg-white p-2">@item.MucLuong</span>
-                                    <span class="position text-black h4 bg-white p-2">@item.HanNopCV</span>
+                                    <p>@item.MucLuong</p>
+                                    <p>@item.HanNopCV</p>
                                 </div>
                             </div>
                         </div>
