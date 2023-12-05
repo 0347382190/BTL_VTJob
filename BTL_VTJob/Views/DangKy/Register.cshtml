@@ -3,53 +3,119 @@
 @*@{
     ViewData["Title"] = "Register";
 }*@
+
 <div class="col-12 wrap-form">
     <div class="container_form">
         <div class="container_form-inner">
             <h2 style="text-align:center; margin: 10px;">Đăng ký</h2>
-            <form asp-action="Register" method="post" enctype="multipart/form-data">
+            <form id="registerForm" asp-action="Register" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class=" form-group ">
+                
+                <div class="form-group">
                     <label asp-for="Hoten" class="control-label"></label>
                     <input asp-for="Hoten" class="form-control" />
                     <span asp-validation-for="Hoten" class="text-danger"></span>
                 </div>
-                <div class="  form-group">
+
+                <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
                     <input asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
+
                 <div class="form-group">
                     <label asp-for="SoDT" class="control-label"></label>
                     <input asp-for="SoDT" class="form-control" />
                     <span asp-validation-for="SoDT" class="text-danger"></span>
                 </div>
 
-                <div>
-                    <div class="form-group">
-                        <label asp-for="MatKhau" class="control-label"></label>
-                        <input asp-for="MatKhau" class="form-control" type="password" />
-                        <span asp-validation-for="MatKhau" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="MatKhauXacNhan" class="control-label"></label>
-                        <input asp-for="MatKhauXacNhan" class="form-control" type="password" />
-                        <span asp-validation-for="MatKhauXacNhan" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="MatKhau" class="control-label"></label>
+                    <input asp-for="MatKhau" class="form-control" type="password" />
+                    <span asp-validation-for="MatKhau" class="text-danger"></span>
                 </div>
+
+                <div class="form-group">
+                    <label asp-for="MatKhauXacNhan" class="control-label"></label>
+                    <input asp-for="MatKhauXacNhan" class="form-control" type="password" />
+                    <span asp-validation-for="MatKhauXacNhan" class="text-danger"></span>
+                </div>
+
                 <div style="text-align:center; margin-top: 10px;">
-                    <div>
-                        <button type="submit" class="btn " style="width:310px">Đăng ký</button>
-                    </div>
-                    Hoặc
-                    <div>
-                        <button asp-action="Login" asp-controller="DangKy" class="btn" style="width:310px">Đăng nhập</button>
-                    </div>
+                    <button type="button" onclick="validateForm()" class="btn" style="width:310px">Đăng ký</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    function validateForm() {
+        var hoten = document.getElementById("Hoten").value;
+        var email = document.getElementById("Email").value;
+        var soDT = document.getElementById("SoDT").value;
+        var matKhau = document.getElementById("MatKhau").value;
+        var matKhauXacNhan = document.getElementById("MatKhauXacNhan").value;
+
+        // Xóa các thông báo lỗi trước khi kiểm tra lại
+        clearErrorMessages();
+
+        if (hoten.trim() === "") {
+            displayErrorMessage("Hoten", "Họ tên không được bỏ trống");
+            return;
+        }
+        if (email.trim() === "") {
+            displayErrorMessage("Email", "Email không được bỏ trống");
+            return;
+        }
+        if (!isValidEmail(email)) {
+            displayErrorMessage("Email", "Email không đúng định dạng");
+            return;
+        }
+        if (soDT.trim() === "") {
+            displayErrorMessage("SoDT", "Số điện thoại không được bỏ trống");
+            return;
+        }
+        if (matKhau.trim() === "") {
+            displayErrorMessage("MatKhau", "Mật khẩu không được bỏ trống");
+            return;
+        }
+        if (matKhauXacNhan.trim() === "") {
+            displayErrorMessage("MatKhauXacNhan", "Xác nhận mật khẩu không được bỏ trống");
+            return;
+        }
+        if (matKhau !== matKhauXacNhan) {
+            displayErrorMessage("MatKhauXacNhan", "Xác nhận mật khẩu không đúng");
+            return;
+        }
+
+        // Nếu tất cả các điều kiện đều đúng, submit form
+        document.getElementById("registerForm").submit();
+    }
+
+    function clearErrorMessages() {
+        // Xóa nội dung của tất cả các phần tử hiển thị thông báo lỗi
+        document.querySelectorAll(".text-danger").forEach(function (element) {
+            element.innerHTML = "";
+        });
+    }
+
+    function displayErrorMessage(fieldName, errorMessage) {
+        // Hiển thị thông báo lỗi cho trường cụ thể
+        var errorSpan = document.querySelector("#" + fieldName + " + .text-danger");
+        if (errorSpan) {
+            errorSpan.innerHTML = errorMessage;
+        }
+    }
+
+    function isValidEmail(email) {
+        // Biểu thức chính quy kiểm tra định dạng email
+        var emailRegex = /^[^\s]+[^\s]+\.[^\s]+$/;
+        return emailRegex.test(email.trim());
+    }
+</script>
+
+
     @section Scripts {
         @{
             await Html.RenderPartialAsync("_ValidationScriptsPartial");
